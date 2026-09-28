@@ -49,3 +49,22 @@ button:focus-visible, input:focus-visible { outline: 3px solid #f0b429; outline-
 .actions .delete { color: var(--danger); }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* --- Auth screen + logout --- */
+.top-row { display: flex; align-items: center; justify-content: space-between; }
+.auth-page { max-width: 380px; padding-top: 80px; }
+.auth-form { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+.auth-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 0.9rem; }
+.auth-form input {
+  padding: 12px 14px; font-size: 1rem; border: 1.5px solid var(--line);
+  border-radius: 8px; background: var(--panel); font-weight: 400;
+}
+.auth-form button[type="submit"] {
+  margin-top: 6px; background: var(--accent); border-color: var(--accent);
+  color: #fff; font-weight: 600; padding: 12px;
+}
+.hint { color: var(--muted); font-size: 0.85rem; margin: -6px 0 0; }
+.link-button {
+  background: none; border: none; color: var(--accent); font-weight: 600;
+  padding: 8px 0; text-decoration: underline;
+}
