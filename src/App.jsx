@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 
+// Address of the backend. Empty on your computer (the Vite proxy handles it);
+// set VITE_API_URL when deploying, e.g. https://my-api.onrender.com
+const API_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+
 // Small helper so every API call handles JSON and errors the same way.
 async function api(path, options = {}) {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_URL}/api${path}`, {
     headers: { "Content-Type": "application/json" },
     ...options,
   });
