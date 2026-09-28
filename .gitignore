@@ -1,0 +1,10 @@
+
+__pycache__/
+venv/
+todo.db
+*.db
+node_modules/
+package-lock.json
+package.json
+*.log
+*.json
