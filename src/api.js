@@ -14,11 +14,13 @@ export async function api(path, options = {}) {
     },
   });
 
-  if (res.status === 401) {
-    // Token missing/expired: send the user back to the login screen.
+  if (res.status === 401 && !path.startsWith("/auth/")) {
+    // A saved token was missing/expired on a request that needed one — send the
+    // user back to the login screen. Login/signup calls handle their own 401s
+    // below (wrong email or password) instead of being caught by this branch.
     localStorage.removeItem("token");
     window.location.reload();
-    throw new Error("Not logged in");
+    throw new Error("Session expired, please log in again");
   }
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
